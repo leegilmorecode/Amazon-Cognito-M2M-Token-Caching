@@ -6,7 +6,19 @@ In this article, we will cover how to cache Amazon Cognito M2M access tokens in 
 
 > Note: If you choose to deploy these resources you may be charged for usage.
 
-You can find the associated article here: x
+You can find the associated article here: https://medium.com/@leejamesgilmore/amazon-cognito-m2m-token-caching-for-cost-optimisation-performance-74c876d6f4aa
+
+### Generating a token
+
+The following CURL command allows you to test generating an access token:
+
+```
+curl -X POST "https://your-api-gateway-url/oauth2/token" \
+     -H "Authorization: Basic $(echo -n 'your-client-id:your-client-secret' | base64)" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "grant_type=client_credentials" \
+     -d "scope=cars-service/create.order"
+```
 
 ### Deploying the Solution
 

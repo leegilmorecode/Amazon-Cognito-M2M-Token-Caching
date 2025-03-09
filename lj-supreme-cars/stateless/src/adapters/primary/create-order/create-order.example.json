@@ -1,0 +1,9 @@
+{
+  "branchId": "branch-123",
+  "carModelId": "model-x2025",
+  "quantity": 10,
+  "color": "metallic-grey",
+  "trimLevel": "Sport",
+  "options": ["sunroof", "leather-seats", "premium-sound"],
+  "notes": "Please prioritise this order for end-of-quarter delivery."
+}

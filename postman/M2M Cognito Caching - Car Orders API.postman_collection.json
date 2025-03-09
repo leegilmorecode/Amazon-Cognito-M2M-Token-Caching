@@ -1,0 +1,95 @@
+{
+  "info": {
+    "_postman_id": "45f03e89-9868-48e0-bd27-3085b09937f1",
+    "name": "M2M Cognito Caching - Car Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "752706"
+  },
+  "item": [
+    {
+      "name": "Create Order",
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "clientSecret",
+              "value": "{{client-secret-value}}",
+              "type": "string"
+            },
+            {
+              "key": "clientId",
+              "value": "{{client-id}}",
+              "type": "string"
+            },
+            {
+              "key": "accessTokenUrl",
+              "value": "{{access-token-url}}",
+              "type": "string"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "string"
+            },
+            {
+              "key": "client_authentication",
+              "value": "header",
+              "type": "string"
+            },
+            {
+              "key": "tokenName",
+              "value": "access-token",
+              "type": "string"
+            },
+            {
+              "key": "addTokenTo",
+              "value": "header",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"branchId\": \"branch-123\",\n  \"carModelId\": \"model-x2025\",\n  \"quantity\": 10,\n  \"color\": \"metallic-grey\",\n  \"trimLevel\": \"Sport\",\n  \"options\": [\"sunroof\", \"leather-seats\", \"premium-sound\"],\n  \"notes\": \"Please prioritise this order for end-of-quarter delivery.\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://{{car-orders-rest-api}}/prod/v1/orders",
+          "protocol": "https",
+          "host": ["{{car-orders-rest-api}}"],
+          "path": ["prod", "v1", "orders"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "car-orders-rest-api",
+      "value": "your-rest-api-id.execute-api.your-region.amazonaws.com",
+      "type": "default"
+    },
+    {
+      "key": "client-secret-value",
+      "value": "your-client-secret",
+      "type": "default"
+    },
+    {
+      "key": "access-token-url",
+      "value": "https://your-api-rest-id.execute-api.your-region.amazonaws.com/prod/oauth2/token",
+      "type": "default"
+    },
+    {
+      "key": "client-id",
+      "value": "your-client-id",
+      "type": "default"
+    }
+  ]
+}
