@@ -40,10 +40,14 @@ export async function getTokenUseCase(
     logger.debug(
       `Token found in cache for client: ${clientId} & token: ${JSON.stringify(cachedToken)}`,
     );
+
+    const currentTime = Math.floor(Date.now() / 1000);
+    const remaining = cachedToken.expires_at - currentTime;
+
     return {
       access_token: cachedToken.access_token,
       token_type: cachedToken.token_type,
-      expires_in: cachedToken.expires_in,
+      expires_in: remaining,
     };
   }
 
